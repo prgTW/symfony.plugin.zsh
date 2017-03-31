@@ -43,10 +43,12 @@ _symfony2 () {
 compdef _symfony2 '`_symfony_console`'
 compdef _symfony2 'app/console'
 compdef _symfony2 'bin/console'
-compdef _symfony2 sf
-compdef _symfony2 sfdev
-compdef _symfony2 sfx
-compdef _symfony2 sfxdev
+compdef _symfony2 'sf'
+compdef _symfony2 'sfdev'
+compdef _symfony2 'sfprod'
+compdef _symfony2 'sfx'
+compdef _symfony2 'sfxdev'
+compdef _symfony2 'sfxdev'
 
 #Alias
 alias sf='`_symfony_console`'

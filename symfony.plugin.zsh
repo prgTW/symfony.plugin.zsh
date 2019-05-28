@@ -1,18 +1,28 @@
 # Basic command completion
 
-_symfony_console_script() {
+_symfony_console() {
+    if [[ -x "$dir/symfony" ]]; then
+        # local Symfony Client
+        echo "$dir/symfony" console"
+        return 0;
+    elif command -v symfony >/dev/null 2>&1; then
+        # Symfony Client in PATH
+        echo "$(command -v symfony) console"
+        return 0;
+    fi
+
     dir="$PWD";
 
     # Upward search
     while ((1)); do
 
         if [[ -f "$dir/bin/console" ]]; then
-            # Symfony 3
-            echo "$dir/bin/console";
+            # Symfony 3 + 4
+            echo "php $dir/bin/console";
             return 0;
         elif [[ -f "$dir/app/console" ]]; then
             # Symfony 2
-            echo "$dir/app/console";
+            echo "php $dir/app/console";
             return 0;
         fi
 
@@ -22,10 +32,6 @@ _symfony_console_script() {
     done
 
     return 1;
-}
-
-_symfony_console () {
-  echo "php `_symfony_console_script`"
 }
 
 _symfony_xdebug_console () {

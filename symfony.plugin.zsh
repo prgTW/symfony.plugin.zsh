@@ -3,7 +3,7 @@
 _symfony_console() {
     if [[ -x "$dir/symfony" ]]; then
         # local Symfony Client
-        echo "$dir/symfony" console"
+        echo "$dir/symfony console"
         return 0;
     elif command -v symfony >/dev/null 2>&1; then
         # Symfony Client in PATH
